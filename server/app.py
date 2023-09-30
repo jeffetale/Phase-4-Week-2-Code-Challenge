@@ -13,7 +13,7 @@ db.init_app(app)
 
 @app.route("/")
 def home():
-    return ""
+    return "Hello"
 
 
 if __name__ == "__main__":

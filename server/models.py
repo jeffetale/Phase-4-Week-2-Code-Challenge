@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import validates
 from datetime import datetime
 import pytz
 
@@ -21,11 +22,17 @@ class Power(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.String(400), nullable=False)
+    description = db.Column(db.String(20), nullable=False)
     created_at = db.Column(db.DateTime, default = datetime.now(nairobi_tz))
     updated_at = db.Column(db.DateTime, default = datetime.now(nairobi_tz), onupdate=datetime.now(nairobi_tz))
 
     heroes = db.relationship('HeroPower', backref='power', lazy=True)
+
+    @validates('description')
+    def validate_description(self, key, description):
+        assert len(description) >= 20 , "Description must be present and at least 20 characters long"
+
+        return description
 
 class HeroPower(db.Model):
     __tablename__ = 'hero_powers'
@@ -36,3 +43,10 @@ class HeroPower(db.Model):
     power_id = db.Column(db.Integer, db.ForeignKey('powers.id'), nullable=False)    
     created_at = db.Column(db.DateTime, default=datetime.now(nairobi_tz))
     updated_at = db.Column(db.DateTime, default=datetime.now(nairobi_tz), onupdate=datetime.now(nairobi_tz))
+
+    @validates('strength')
+    def validate_strength(self, key, strength):
+        assert strength in ['Strong', 'Weak', 'Average'], 'strength must be either: strong, average or weak'
+
+        return strength
+    
