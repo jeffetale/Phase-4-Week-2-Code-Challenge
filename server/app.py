@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from flask import Flask, make_response, jsonify
+from flask import Flask, jsonify
 from flask_migrate import Migrate
 from models import db, Hero, HeroPower, Power
 
@@ -41,6 +41,20 @@ def get_hero(id):
         "super_name": hero.super_name,
         "powers": powers
     }), 200
+
+@app.route('/powers', methods=['GET'])
+def get_powers():
+    powers = Power.query.all()
+    return jsonify([{"id": power.id, "name": power.name, "description": power.description} for power in powers]), 200
+
+@app.route("/powers/<int:id>", methods=["GET"])
+def get_power(id):
+    power = Power.query.get(id)
+    if power is None:
+        return jsonify({"error": "Power not found"}), 404
+    
+    return jsonify({"id" : power.id, "name": power.name, "description": power.description}), 200
+           
 
 
 if __name__ == "__main__":
