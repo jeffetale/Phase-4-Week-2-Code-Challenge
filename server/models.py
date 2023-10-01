@@ -46,7 +46,7 @@ class HeroPower(db.Model):
 
     @validates('strength')
     def validate_strength(self, key, strength):
-        assert strength in ['Strong', 'Weak', 'Average'], 'strength must be either: strong, average or weak'
+        assert strength in ['Strong', 'Weak', 'Average'], 'strength must be either: Strong, Average or Weak'
 
         return strength
     
