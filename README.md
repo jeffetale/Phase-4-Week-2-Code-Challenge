@@ -9,8 +9,8 @@ Superheroes is a web application that showcases superheroes and their various po
 You need to have the following installed:
 - Python 3.10 or later.
 - Visual Studio Code or an IDE of your choice.
-- Postman or Insomnia
 - Web Browser of your choice.
+- Postman or Insomnia
 
 ## Setup
 
@@ -37,9 +37,13 @@ npm start
 
 ## API Endpoints
 
+* Use Postman or Insomnia to test out the endpoints.
+
 ### GET /heroes
 
-Return JSON data in the format below:
+* Url: https://phase-4-week-2-code-challenge.onrender.com/heroes  or  http://127.0.0.1:5555/heroes
+
+Returns JSON data in the format below:
 
 ```json
 [
@@ -51,7 +55,9 @@ Return JSON data in the format below:
 
 ### GET /heroes/:id
 
-If the `Hero` exists, return JSON data in the format below:
+* Url: https://phase-4-week-2-code-challenge.onrender.com/heroes/1  or  http://127.0.0.1:5555/heroes/1
+
+If the `Hero` exists, it returns JSON data in the format below:
 
 ```json
 {
