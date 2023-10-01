@@ -59,6 +59,7 @@ with app.app_context():
             db.session.add(hero_power)
 
     db.session.commit()
+    
 
 
     

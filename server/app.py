@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_migrate import Migrate
 from models import db, Hero, HeroPower, Power
 
@@ -54,8 +54,27 @@ def get_power(id):
         return jsonify({"error": "Power not found"}), 404
     
     return jsonify({"id" : power.id, "name": power.name, "description": power.description}), 200
+
+@app.route("/power/<int:id>", methods=["PATCH"])
+def update_power(id):
+    power = Power.query.get(id)
+    if power is None:
+        return jsonify({"error": "Power not found"}), 404
+    
+    data = request.get_json()
+    description = data.get('description')
+    if description is None or len(description) < 20:
+        return jsonify({"error": ["validation errors"]}), 400
+    
+    power.description = description
+    db.session.commit()
+
+    return jsonify({
+        "id": power.id,
+        "name": power.name,
+        "description": power.description
+    }), 200
+
            
-
-
 if __name__ == "__main__":
     app.run(port=5555)
