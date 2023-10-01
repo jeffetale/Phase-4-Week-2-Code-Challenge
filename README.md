@@ -2,7 +2,7 @@
 
 ## Description
 
-Superheroes is a web application that show cases superheroes and their various powers. A front end with react let's users interact with the application backend built using flask. Users can view all the heroes, powers, edit the description of powers and even add new association between a hero and a power.
+Superheroes is a web application that showcases superheroes and their various powers. A front end with react lets users interact with the application backend built using Flask. Users can view all the heroes and powers, edit the description of powers and even add new associations between a hero and a power.
 
 ## Setup
 
@@ -10,13 +10,21 @@ Instructions on how to get the project up and running.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/jeffetale/Phase-4-Week-2-Code-Challenge.git
 
 # Navigate to the directory
-cd your-repo-name
+cd Phase-4-Week-2-Code-Challenge
 
-# Install dependencies
-pip install -r requirements.txt
+# Install Python dependencies, activate the virtual environment and run the server
+pipenv install && pipenv shell
+cd server
+python app.py
+
+# Install react dependencies and start the server
+cd client
+nvm use 16.20.2
+npm install
+npm start
 ```
 
 ## API Endpoints
