@@ -82,7 +82,7 @@ def get_power(id):
     )
 
 
-@app.route("/power/<int:id>", methods=["PATCH"])
+@app.route("/powers/<int:id>", methods=["PATCH"])
 def update_power(id):
     power = Power.query.get(id)
     if power is None:
