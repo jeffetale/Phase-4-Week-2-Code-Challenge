@@ -4,6 +4,14 @@
 
 Superheroes is a web application that showcases superheroes and their various powers. A front end with react lets users interact with the application backend built using Flask. Users can view all the heroes and powers, edit the description of powers and even add new associations between a hero and a power.
 
+## Prerequisites
+
+You need to have the following installed:
+- Python 3.10 or later.
+- Visual Studio Code or an IDE of your choice.
+- Postman or Insomnia
+- Web Browser of your choice.
+
 ## Setup
 
 Instructions on how to get the project up and running.
