@@ -132,4 +132,13 @@ existing `Power` and `Hero`.
 }
 ```
 
+## Browser Interaction (Front-End)
+
+After running npm start to begin the react app, you will be redirected to your web browser where you can test out the client side of the 
+application. All the routes are included and you can manipulate the API with various methods and interactions.
+
+## Authors
+Jeff Etale - jeff.etale@moringaschool.com
+
+
 
