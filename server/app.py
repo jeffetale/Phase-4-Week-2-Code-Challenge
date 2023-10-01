@@ -13,7 +13,7 @@ db.init_app(app)
 
 @app.route("/")
 def home():
-    return "Hello"
+    return (jsonify({"Hello": "Welcome to the superheroes API"}), 200)
 
 
 @app.route("/heroes", methods=["GET"])
@@ -118,7 +118,11 @@ def create_hero_power():
 
     hero = Hero.query.get(hero_id)
     powers = [
-        {"id": power.power.id, "name": power.power.name, "description": power.power.description}
+        {
+            "id": power.power.id,
+            "name": power.power.name,
+            "description": power.power.description,
+        }
         for power in hero.powers
     ]
 
