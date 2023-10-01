@@ -79,18 +79,11 @@ If the `Hero` exists, it returns JSON data in the format below:
 }
 ```
 
-If the `Hero` does not exist, return the following JSON data, along with
-the appropriate HTTP status code:
-
-```json
-{
-  "error": "Hero not found"
-}
-```
-
 ### GET /powers
 
-Return JSON data in the format below:
+* Url: https://phase-4-week-2-code-challenge.onrender.com/powers  or  http://127.0.0.1:5555/powers
+
+Returns JSON data in the format below:
 
 ```json
   {
@@ -102,7 +95,9 @@ Return JSON data in the format below:
 
 ### GET /powers/:id
 
-return JSON data in the format below:
+* Url: https://phase-4-week-2-code-challenge.onrender.com/powers/1  or  http://127.0.0.1:5555/powers/1
+
+Returns JSON data in the format below:
 
 ```json
 {
@@ -113,8 +108,8 @@ return JSON data in the format below:
 ```
 
 ### PATCH /powers/:id
-
-
+* Url: https://phase-4-week-2-code-challenge.onrender.com/powers/1  or  http://127.0.0.1:5555/powers/1
+* Use the patch method in Postman to edit powers' descriptions. 
 
 ```json
 {
@@ -123,8 +118,10 @@ return JSON data in the format below:
 ```
 
 ### POST /hero_powers
+* Url: https://phase-4-week-2-code-challenge.onrender.com/hero_powers  or  http://127.0.0.1:5555/hero_powers
+* Use the post method in Postman to add a new hero_power object.
 
-create a new `HeroPower` that is associated with an
+Create a new `HeroPower` that is associated with an
 existing `Power` and `Hero`.
 
 ```json
@@ -135,26 +132,4 @@ existing `Power` and `Hero`.
 }
 ```
 
-If the `HeroPower` is created successfully, send back a response with the data
-related to the `Hero`:
-
-```json
-{
-  "id": 1,
-  "name": "Kamala Khan",
-  "super_name": "Ms. Marvel",
-  "powers": [
-    {
-      "id": 1,
-      "name": "super strength",
-      "description": "gives the wielder super-human strengths"
-    },
-    {
-      "id": 2,
-      "name": "flight",
-      "description": "gives the wielder the ability to fly through the skies at supersonic speed"
-    }
-  ]
-}
-```
 
